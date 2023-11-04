@@ -1,0 +1,84 @@
+1.Finding the day of the date
+
+class Result {
+
+    /*
+     * Complete the 'findDay' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. INTEGER month
+     *  2. INTEGER day
+     *  3. INTEGER year
+     */
+
+    public static String findDay(int month, int day, int year) {
+        Calendar cal= Calendar.getInstance();         // creates calendar object
+           cal.set(year, month-1, day);         // sets the date to given values
+           int d= cal.get(Calendar.DAY_OF_WEEK);// weekday in int format
+           String weekday= new String();  //string for storing weekday
+           switch(d){                                   // switch cases for weekdays
+            case 1:
+                    weekday= "SUNDAY";
+                    break;
+            case 2:
+                    weekday= "MONDAY";
+                    break;
+            case 3:
+                    weekday= "TUESDAY";
+                    break;
+            case 4:
+                    weekday= "WEDNESDAY";
+                    break;
+            case 5:
+                    weekday= "THURSDAY";
+                    break;
+            case 6:
+                    weekday= "FRIDAY";
+                    break;
+            case 7:
+                    weekday= "SATURDAY";
+                    break;
+           }
+           return(weekday);
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int month = Integer.parseInt(firstMultipleInput[0]);
+
+        int day = Integer.parseInt(firstMultipleInput[1]);
+
+        int year = Integer.parseInt(firstMultipleInput[2]);
+
+        String res = Result.findDay(month, day, year);
+
+        bufferedWriter.write(res);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+2.Printing the substring of given string
+
+import java.util.*;
+public class SubStringTest {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+        System.out.println(S.substring(start, end));
+    }
+
+}
+}
